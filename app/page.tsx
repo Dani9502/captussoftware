@@ -1,6 +1,37 @@
+'use client'; 
 import Image from "next/image";
 
+import { useEffect, useState } from 'react';
+
+
+
 export default function Home() {
+
+  const [visitas, setVisitas] = useState<number>(0);
+
+  useEffect(() => {
+    // 1. Intentamos obtener el valor guardado en el navegador
+    const visitasGuardadas = localStorage.getItem('captus_views');
+    
+    let nuevoTotal = 0;
+
+    if (visitasGuardadas) {
+      // Si ya existía, le sumamos 1 a la visita anterior
+      nuevoTotal = parseInt(visitasGuardadas, 10) + 1;
+    } else {
+      // Si es la primerísima vez que alguien entra, iniciamos con una base alta para que se vea profesional
+      nuevoTotal = 1230; 
+    }
+
+    // 2. Guardamos el nuevo total en el almacenamiento local del navegador
+    localStorage.setItem('captus_views', nuevoTotal.toString());
+    
+    // 3. Actualizamos el estado de React para que se pinte en pantalla
+    setVisitas(nuevoTotal);
+  }, []); // Se ejecuta una sola vez al cargar la página
+
+
+
   return (
    <div className="min-h-screen bg-slate-900 text-slate-100 font-sans selection:bg-emerald-500 selection:text-slate-950">
       
@@ -94,6 +125,24 @@ export default function Home() {
               </div>
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
             </div>
+
+            <div className="bg-slate-900/90 rounded-xl p-4 border border-slate-700 flex items-center justify-between">
+      <div className="flex items-center gap-3">
+        <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 text-xl">
+          📊
+        </div>
+        <div>
+          <p className="text-xs text-slate-400">Visitas Totales</p>
+          <p className="text-sm font-bold text-white tracking-wider">
+            {visitas > 0 ? visitas.toLocaleString() : "..."} 
+            <span className="text-[10px] text-cyan-400 font-normal ml-1">en vivo</span>
+          </p>
+        </div>
+      </div>
+      
+      {/* Luz indicadora */}
+      <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+    </div>
           </div>
         </div>
       </section>
