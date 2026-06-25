@@ -295,6 +295,17 @@ export default function Home() {
                 Migración a la nube, diseño de bases de datos eficientes y optimización de sistemas para garantizar que tu infraestructura crezca sin problemas.
               </p>
             </div>
+
+            {/* Tarjeta 3 - Consultoría e Infraestructura */}
+            <div className="bg-slate-900 p-8 rounded-2xl border border-slate-800 hover:border-amber-500/30 transition-all group">
+              <div className="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 text-2xl mb-6 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all">
+                🛠️
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">Infraestructura y Soporte</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                Mantenimiento preventivo y correctivo de computadores, soporte técnico especializado, diseño de redes y venta de periféricos de alta calidad para tu negocio.
+              </p>
+            </div>
           </div>
         </div>
       </section>
