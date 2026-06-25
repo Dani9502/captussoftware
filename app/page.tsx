@@ -262,7 +262,7 @@ export default function Home() {
             <p className="text-slate-400">Soluciones de software a la medida diseñadas para escalar y destacar en el mercado actual.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-4 gap-8">
             {/* Tarjeta 1 - Desarrollo Web */}
             <div className="bg-slate-900 p-8 rounded-2xl border border-slate-800 hover:border-emerald-500/30 transition-all group">
               <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-2xl mb-6 group-hover:bg-emerald-500 group-hover:text-slate-950 transition-all">
